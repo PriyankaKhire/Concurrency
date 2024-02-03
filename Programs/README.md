@@ -14,3 +14,6 @@
 
 - <a href="Basics/Multithreading inside Multiprocessing.py">Multithreading inside Multiprocessing</a></br>
   Shows multiple process and their multiple threads.
+
+- <a href="Basics/Mutex.py">Mutex</a></br>
+  Shows how 2 threads access and increment a shared resource.
