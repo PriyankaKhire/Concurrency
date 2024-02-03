@@ -7,6 +7,7 @@ def task(taskName):
     print "Starting task ", taskName
     for i in range(3):
         print "performing task ", taskName
+        time.sleep(1)
     print "Completed task ", taskName
 
 # Main
