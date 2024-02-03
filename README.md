@@ -27,11 +27,12 @@
  #### Example:
  Imagine your computer is a kitchen: each process is like a chef working on a different recipe. They have their own ingredients (memory and resources) and work independently from each other. 
 ### Thread
-A thread is a locus of control inside a running program. Threads help programs do multiple things at once, like multitasking on a computer. 
+A thread is a locus of control inside a running program. Threads help programs do multiple things at once, like multitasking on a computer. Threads are within the same process address space, thus, much of the information present in the memory description of the process can be shared across threads.
   #### Example:
    Imagine you're cooking dinner: you might have one thread chopping vegetables while another thread is boiling water. 
-
+![Screenshot 2024-02-02 191525](https://github.com/PriyankaKhire/Concurrency/assets/12015512/76c8c2b7-3ee7-47f9-aeb8-f8ee52d7c2f2)
 
 
 # Good Reads
-<a href="https://web.mit.edu/6.005/www/fa14/classes/17-concurrency/#:~:text=Concurrency%20means%20multiple%20computations%20are,cores%20on%20a%20single%20chip)">MIT course on Concurrency</a>
+- <a href="https://web.mit.edu/6.005/www/fa14/classes/17-concurrency/#:~:text=Concurrency%20means%20multiple%20computations%20are,cores%20on%20a%20single%20chip)">MIT course on Concurrency</a>
+- <a href="https://stackoverflow.com/questions/5201852/what-is-a-thread-really">Stack overflow: What is a thread</a>
