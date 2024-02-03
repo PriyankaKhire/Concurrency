@@ -17,10 +17,12 @@ def threadExecution(processName):
     # Note the comma in args=(processName, "Thread1",)
     thread1 = threading.Thread(target=task, args=(processName, "Thread1",))
     thread2 = threading.Thread(target=task, args=(processName, "Thread2",))
-    
+
+    # Start the thread
     thread1.start()
     thread2.start()
-    
+
+    # Wait for threads to finish execution
     thread1.join()
     thread2.join()
 
@@ -28,10 +30,12 @@ def processExecution():
     # Note the comma in args=("Process1",)
     process1 = Process(target=threadExecution, args=("Process1",))
     process2 = Process(target=threadExecution, args=("Process2",))
-    
+
+    # Start the process
     process1.start()
     process2.start()
-    
+
+    # Wait for all the processes to finish execution
     process1.join()
     process2.join()
 
