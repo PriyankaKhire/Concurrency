@@ -8,15 +8,15 @@
 ## How Concurrent Modules Communicate
 ### Shared memory
   Concurrent modules communicate by reading from and writing to shared memory objects.
-  ![Shared memory](https://github.com/PriyankaKhire/Concurrency/assets/12015512/01c45846-abc6-4df8-8676-45dc453412ba)
-  #### In the above image, A and B can be:
+  ![Shared memory](https://github.com/PriyankaKhire/Concurrency/assets/12015512/01c45846-abc6-4df8-8676-45dc453412ba) </br>
+  **In the above image, A and B can be:**
   - two processors (or processor cores) in the same computer, sharing the same physical memory.
   - two programs running on the same computer, sharing a common filesystem with files they can read and write.
   - two threads in the same Java program, sharing the same Java objects.
 ### Message passing
   Concurrent modules communicate by sending messages through a communication channel. Modules send off messages, and incoming messages to each module are queued up for handling. </br>
-  ![Screenshot 2024-02-02 184009](https://github.com/PriyankaKhire/Concurrency/assets/12015512/200ba155-921e-4a9d-a8a7-4355a5edfa57)
-  #### In the above image, A and B can be:
+  ![Screenshot 2024-02-02 184009](https://github.com/PriyankaKhire/Concurrency/assets/12015512/200ba155-921e-4a9d-a8a7-4355a5edfa57) </br>
+  **In the above image, A and B can be:**
   - two computers in a network, communicating over the network connection.
   - web browser and a web server – A opens a connection to B, asks for a web page, and B sends the web page data back to A.
   - two programs running on the same computer whose input and output have been connected by a pipe, like ```ls | grep``` typed into a command prompt.
@@ -52,8 +52,14 @@ Let's consider a simple example of a bank account where two processes, Process A
 
 In this scenario, a race condition occurs because the outcome (the final balance) depends on the order in which the processes execute their operations. Depending on the timing, both processes read the same balance, perform their operations independently, and the final balance is incorrect because they don't account for each other's actions.
 
+## Mutex
+A Mutex is a Mutually exclusive flag.  It's used to control access to shared resources, ensuring that only one thread or process can access the resource at any given time. This prevents race conditions.
+### Example:
+When I am having a big heated discussion at work, I use a rubber chicken which I keep in my desk for just such occasions. The person holding the chicken is the only person who is allowed to talk. If you don't hold the chicken you cannot speak. You can only indicate that you want the chicken and wait until you get it before you speak. Once you have finished speaking, you can hand the chicken back to the moderator who will hand it to the next person to speak. This ensures that people do not speak over each other, and also have their own space to talk. </br></br>
+The chicken is the mutex. People hoilding the mu.. chicken are *competing threads*. The Moderator is the *OS*. When people requests the chicken, they do a *lock request*. When you call ```mutex.lock()```, your thread stalls in ```lock()``` and makes a lock request to the OS. When the OS detects that the mutex was released from a thread, it merely gives it to you, and ```lock()``` returns "-" the mutex is now yours and only yours. Nobody else can steal it, because calling ```lock()``` will block him. There is also ```try_lock()``` that will block and return true when mutex is yours and immediately false if mutex is in use.
 
 
 # Good Reads
 - <a href="https://web.mit.edu/6.005/www/fa14/classes/17-concurrency/#:~:text=Concurrency%20means%20multiple%20computations%20are,cores%20on%20a%20single%20chip)">MIT course on Concurrency</a>
 - <a href="https://stackoverflow.com/questions/5201852/what-is-a-thread-really">Stack overflow: What is a thread</a>
+- <a href="https://stackoverflow.com/questions/34524/what-is-a-mutex">Stack overflow: What is a mutex?</a>
